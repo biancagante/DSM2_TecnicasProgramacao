@@ -21,6 +21,7 @@ public class VideoLocadora {
 	}
 	
 	public void getFilmes() {
+		System.out.println("Lista de filmes: \n");
 		for (int i = 0; i < this.qtdFilmes; i++) {
 			String infoFilme = String.format("Nome: %s\nQuantidade de vezes alugado: %d\nPreço do filme: %.2f\n", this.filmes[i], this.vezesAlugado[i], this.precosAlugados[i]);
 			System.out.println(infoFilme);
@@ -56,6 +57,7 @@ public class VideoLocadora {
 	
 	public String devolverFilme(int i, int qtd) {
 		int index = i - 1;
+		this.vezesAlugado[index] -= qtd;
 		if (qtd == 1) {			
 			return String.format("\nO filme %s foi devolvido com sucesso.", this.filmes[index]);
 		}
