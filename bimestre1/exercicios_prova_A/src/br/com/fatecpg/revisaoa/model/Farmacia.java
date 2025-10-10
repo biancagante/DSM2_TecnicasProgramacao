@@ -63,21 +63,24 @@ public class Farmacia {
 	}
 	
 	public void venderMedicamento(int i, int qtd) {
-		double totalCompra = 0;
 		i = i - 1;
-		//int[] listaMedicamentosAtualizada = new int[this.qtd];
-		for(int j = 0; j < this.qtd; j++) {
-			if (j == i) {
-				//this.qtd -= 1;
-				// this.qtd -= nomesMedicamentos[i];
-				nomesMedicamentos[i] = null;
-				this.qtd -= i;
-			}
-			totalCompra = this.precos[i] * qtd;
+		String nome = this.nomesMedicamentos[i];
+	    int diasVencimento = this.diasParaVencimento[i];  
+	    double precoUnitario = this.precos[i]; 
+	    double totalCompra = precoUnitario * qtd;
+		
+	    System.out.println("Obrigada pela compra de " + nomesMedicamentos[i] + " " + qtd + "x = " + totalCompra + "\n");
+	    
+		for(int j = i; j < (this.qtd - 1); j++) {
+				this.nomesMedicamentos[j] = this.nomesMedicamentos[j + 1];
+				this.diasParaVencimento[j] = this.diasParaVencimento[j + 1];
+				this.precos[j] = this.diasParaVencimento[j + 1];
 		}
-		System.out.println(
-			"Obrigada pela compra de " + nomesMedicamentos[i] + " " +
-			qtd + "x = " + totalCompra
-		);
+		this.nomesMedicamentos[this.qtd - 1] = nome;
+		this.diasParaVencimento[this.qtd - 1] = diasVencimento;
+		this.precos[this.qtd - 1] = precoUnitario;
+		
+		this.qtd -= 1;
+		
 	}
 }
