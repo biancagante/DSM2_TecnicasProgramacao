@@ -23,6 +23,7 @@ public class Main {
 		
 		System.out.println("Agora me informe quando é o valor da gasolina (00,00): ");
 		double valorTotal = meuCarro.calcularValorEncherTanque(scan.nextDouble());
+		scan.close();
 		
 		System.out.println("O valor total é: " + valorTotal);
 	}
