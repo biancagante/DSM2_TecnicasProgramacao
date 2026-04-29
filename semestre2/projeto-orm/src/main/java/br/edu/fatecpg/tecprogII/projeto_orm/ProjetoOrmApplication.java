@@ -23,7 +23,7 @@ public class ProjetoOrmApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		rep.deleteAll();
+		// rep.deleteAll();
 
 		Aluno aluno1 = new Aluno("Ale", "123.456.789.00");
 		Aluno aluno2 = new Aluno("Maria", "098765432");
